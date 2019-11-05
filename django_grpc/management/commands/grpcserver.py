@@ -36,7 +36,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         if options["autoreload"] is True:
             self.stdout.write("ATTENTION! Autoreload is enabled!")
-            autoreload.main(self._serve, None, options)
+            # autoreload.main(self._serve, None, options)
+            autoreload.run_with_reloader(self._serve, **options)
         else:
             self._serve(**options)
 
